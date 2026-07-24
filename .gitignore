@@ -1,8 +1,4 @@
 target/
 
-# Extracted JDK 21 java.base/java.logging used as ProGuard library jars (~15 MB).
-# Regenerate locally, see README.
-.proguard/
-
 .idea/
 *.iml

@@ -1,28 +1,28 @@
 # LinuxSMP Resource Pack
 
-Ресурспак для плагіна LinuxSMP (Minecraft **26.1.2**, pack_format **84**).
-Дає кожному дистрибутиву власну іконку через `custom_model_data`.
+Resource pack for the LinuxSMP plugin (Minecraft **26.1.2**, pack_format **84**).
+Gives every distro its own icon through `custom_model_data`.
 
-## Структура (готова)
+## Layout (ready)
 
 ```
 pack.mcmeta                                  # min_format/max_format = 84
-pack.png                                     # ІКОНКА ПАКА — треба намалювати (128x128)
+pack.png                                     # PACK ICON - needs drawing (128x128)
 assets/minecraft/
-  items/paper.json                           # диспетч PAPER -> моделі дистрибутивів
-  items/music_disc_11.json                   # диспетч диску -> модель Recovery ISO
-  models/item/distro_*.json                  # 11 моделей (parent: item/generated)
+  items/paper.json                           # dispatches PAPER -> distro models
+  items/music_disc_11.json                   # dispatches the disc -> Recovery ISO model
+  models/item/distro_*.json                  # 11 models (parent: item/generated)
   models/item/recovery_iso.json
-  textures/item/                             # <-- СЮДИ КЛАСТИ PNG-ТЕКСТУРИ
+  textures/item/                             # <-- PUT PNG TEXTURES HERE
 ```
 
-## Текстури (вже намальовані)
+## Textures (already drawn)
 
-Усі іконки — **16×16 піксель-арт у стилі Minecraft** (прозорий фон), лежать у
-`assets/minecraft/textures/item/`. Готовий пак — `../LinuxSMP-RP.zip`.
-Щоб замінити будь-яку — перезапиши PNG тим самим іменем.
+All icons are **16x16 pixel art in the Minecraft style** on a transparent background, and
+live in `assets/minecraft/textures/item/`. The packed version is `../LinuxSMP-RP.zip`.
+To replace any of them, overwrite the PNG under the same name.
 
-| Файл | Дистрибутив | custom_model_data | Рідкість |
+| File | Distro | custom_model_data | Rarity |
 |---|---|---|---|
 | `distro_ubuntu.png`  | Ubuntu        | 2001 | COMMON |
 | `distro_mint.png`    | Linux Mint    | 2002 | COMMON |
@@ -35,20 +35,23 @@ assets/minecraft/
 | `distro_arch.png`    | Arch Linux    | 2009 | EPIC |
 | `distro_gentoo.png`  | Gentoo        | 2010 | LEGENDARY |
 | `distro_lfs.png`     | Linux From Scratch | 2011 | MYTHIC |
-| `recovery_iso.png`   | Recovery ISO (предмет) | 1010 | — |
-| `pack.png`           | Іконка пака (в корені, не в textures/) | — | — |
+| `recovery_iso.png`   | Recovery ISO (item) | 1010 | - |
+| `pack.png`           | Pack icon (in the pack root, not in textures/) | - | - |
 
-> Іконка ISO та pack.png — окремі, не дистрибутиви.
+> The ISO icon and pack.png are separate; they are not distros.
 
-## Встановлення
+## Installing
 
-1. Намалюй PNG, поклади у `textures/item/` (і `pack.png` у корінь пака).
-2. Заархівуй **вміст** папки `LinuxSMP-RP` у zip (щоб `pack.mcmeta` був у корені zip, а не в підпапці).
-3. Постав як серверний resource pack (`server.properties` → `resource-pack`) або локально в `.minecraft/resourcepacks/`.
+1. Draw the PNG, drop it into `textures/item/` (and `pack.png` into the pack root).
+2. Zip the **contents** of the `LinuxSMP-RP` folder, so that `pack.mcmeta` sits at the root
+   of the zip rather than inside a subfolder.
+3. Serve it as a server resource pack (`server.properties` -> `resource-pack`), or install
+   it locally in `.minecraft/resourcepacks/`.
 
-## Як це працює
+## How it works
 
-Плагін кладе на предмет `Material.PAPER` компонент `custom_model_data` = ID дистрибутива
-(2001–2011). `items/paper.json` через `range_dispatch` підміняє модель на `distro_<id>`,
-яка тягне текстуру `textures/item/distro_<id>.png`. Recovery ISO — те саме на диску 11.
-Якщо текстури нема — предмет виглядає як звичайний папір (fallback), помилок не буде.
+The plugin puts a `custom_model_data` component on a `Material.PAPER` item, set to the
+distro id (2001-2011). Through `range_dispatch`, `items/paper.json` swaps the model for
+`distro_<id>`, which pulls the texture from `textures/item/distro_<id>.png`. The Recovery
+ISO works the same way on music disc 11. If a texture is missing the item simply renders as
+ordinary paper, with no errors.

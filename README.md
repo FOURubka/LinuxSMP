@@ -1,45 +1,54 @@
 # LinuxSMP
 
-Gacha-плагін для Paper 26.1.2 (Java 25): гравці ролять Linux-дистрибутиви як персонажів
-з рідкостями, статами, абілками, brick-механікою, ф'южном і дуелями.
+A gacha plugin for Paper: players roll Linux distributions as characters, with rarities,
+stats, abilities, a brick mechanic, fusion and duels.
 
-## Команди
+Compiled against the Paper API 1.21.11 and runs on 1.21.3 - 26.2. Requires Java 21 or newer.
 
-| Команда | Опис |
+## Commands
+
+| Command | Description |
 |---|---|
-| `/distroroll [premium]` | Рол з GUI-анімацією. Перший — безкоштовний, далі 100 Packages; premium — 1 RepoToken, підвищені шанси Legendary/Mythic |
-| `/distroswap <distro>` | Свап активного дистрибутива. Skill check, Slowness 5с, кулдаун 15с. Свап у бою = mixed build → постійний upkeep |
-| `/pacman-syu` | Обслуговування (аліаси: `/syu`, `/distroupdate`). Без нього high-maintenance/mixed білди отримують дебафи кожні 5 хв |
-| `/distros` | GUI ростеру: дистрибутиви, брики, валюти, skill level |
-| `/distrotoken <distro>` | Викинути дистрибутив як токен-предмет (для ф'южну; ПКМ — встановити назад) |
-| `/distrorepair <distro>` | Ремонт: temp brick — за Packages; perma brick — Recovery ISO + Packages |
-| `/distroduel <player\|accept\|deny>` | Дуель. Нагороди Packages за win/lose; опція same-rarity-only у config.yml |
-| `/linuxsmp` | Адмінка: reload, give, iso, token; exchange (Vault) |
+| `/distroroll [premium]` | Roll, with a GUI animation. The first one is free, after that 100 Packages; premium costs 1 RepoToken and raises the Legendary/Mythic odds |
+| `/distroswap <distro>` | Swap the active distro. Skill check, 5s of Slowness, 15s cooldown. Swapping mid-combat leaves a mixed build, which needs permanent upkeep |
+| `/pacman-syu` | Maintenance (aliases: `/syu`, `/distroupdate`). Without it, high-maintenance and mixed builds take debuffs every 5 minutes |
+| `/distros` | Roster GUI: distros, bricks, currencies, skill level |
+| `/distrotoken <distro>` | Drop a distro as a token item, for fusion. Right-click a token to install it back |
+| `/distrorepair <distro>` | Repair: a temp brick costs Packages, a perma brick needs a Recovery ISO plus Packages |
+| `/distroduel <player\|accept\|deny>` | Duel. Pays out Packages for a win or a loss; `same-rarity-only` is a config.yml option |
+| `/linuxsmp` | Admin: reload, give, iso, token, and exchange (Vault) |
 
-**Абілка:** Shift+F (свап рук із шифтом) — активує здібність активного дистрибутива
-(skill check, кулдаун 30с).
+**Ability:** Shift+F, sneak plus swap-hands, fires the active distro's ability. Skill
+check, 30s cooldown.
 
-## Механіки
+## Mechanics
 
-- **Skill checks** — maintenance/swap/fusion/ability. Шанс фейлу:
-  `base + learning-curve × modifier × 0.01 − skill × 0.001` (клемп 1%–60%).
-  Успіх дає +1 skill (макс 200).
-- **Brick**: TEMP (легкі дистрибутиви) — вимкнений на N секунд; PERMA (Arch, Gentoo, LFS) —
-  втрачений, потрібен Recovery ISO. Kernel-panic титул + звук.
-- **Piloting penalty**: learning-curve ≥ 6 і skill < curve×8 → періодичні Slowness/Mining Fatigue.
-- **Fusion** — ShapedRecipe з двох токенів поряд (порядок зліва направо як у distros.yml).
-  Фейл skill check спалює один вхідний токен. Рецепти: ubuntu+debian→mint, arch+mint→manjaro,
-  debian+alpine→kali, ubuntu+gentoo→popos.
-- **Лут з монстрів**: Packages (30%), RepoToken (2%), Dotfile (5%), Recovery ISO (0.5% дроп).
-- **Vault** (softdepend): `/linuxsmp exchange buy|sell ...` — обмін Packages/RepoTokens на серверну валюту.
+- **Skill checks** on maintenance, swap, fusion and ability. Failure chance is
+  `base + learning-curve x modifier x 0.01 - skill x 0.001`, clamped to 1%-60%.
+  Every success gives +1 skill, up to 200.
+- **Brick**: TEMP, on the lighter distros, disables one for N seconds. PERMA, on Arch,
+  Gentoo and LFS, loses it until you find a Recovery ISO. Comes with a kernel-panic title
+  and sound.
+- **Piloting penalty**: a learning curve of 6 or more with a skill below `curve x 8` gives
+  you periodic Slowness and Mining Fatigue.
+- **Fusion** is a ShapedRecipe from two tokens placed side by side, left to right in the
+  order they appear in distros.yml. Failing the skill check burns one of the input tokens.
+  Recipes: ubuntu+debian to mint, arch+mint to manjaro, debian+alpine to kali,
+  ubuntu+gentoo to popos.
+- **Mob loot**: Packages (30%), RepoToken (2%), Dotfile (5%), Recovery ISO (0.5%).
+- **Vault** (softdepend): `/linuxsmp exchange buy|sell ...` trades Packages and RepoTokens
+  against the server economy.
 
-## Дані
+## Data
 
-- `distros.yml` — дистрибутиви, стати, brick-risk, ваги рідкостей, ф'южн-рецепти. Розширюється без перекомпіляції.
-- `config.yml` — вартості, кулдауни, шанси, custom-model-data (1001–1005 за рідкістю, 1010 — ISO).
-- `playerdata/<uuid>.yml` — дані гравців (автозбереження кожні 5 хв).
+- `distros.yml` holds the distros, their stats, brick risk, rarity weights and fusion
+  recipes. It can be extended without recompiling.
+- `config.yml` holds costs, cooldowns, chances and custom-model-data (1001-1005 by rarity,
+  1010 for the ISO).
+- `playerdata/<uuid>.yml` holds per-player data, saved automatically every 5 minutes.
 
-## Відхилення від ТЗ
+## Deviations from the original spec
 
-- Рецепт Manjaro: замість "Manjaro-simplicity-token" — arch+mint.
-- Тригер абілки — Shift+F (ПКМ порожньою рукою не надсилається клієнтом).
+- The Manjaro recipe is arch+mint rather than a dedicated "Manjaro-simplicity-token".
+- The ability trigger is Shift+F, because the client never sends a right-click with an
+  empty hand.

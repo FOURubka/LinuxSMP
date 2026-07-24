@@ -1,6 +1,6 @@
 # LinuxSMP
 
-Roll Linux distributions as gacha characters, collect them, and fight with them. Each distro is a real character with its own stats, its own ability, and its own way of breaking on you if you are careless. Arch will hand you a shockwave when it is patched and hurt you when it is not. NixOS lets you rewind a bad moment. Gentoo takes three seconds to compile and then turns the ground into bookshelves.
+Roll Linux distributions as gacha characters, collect them, and fight with them. Each distro is a real character with its own stats, its own ability, and its own way of breaking on you if you are careless. Arch will hand you a shockwave when it is patched and hurt you when it is not. NixOS lets you rewind a bad moment. Gentoo pins you in place for an eight-second compile that anyone can interrupt, and pays out only if you survive it.
 
 There are 14 distros across five rarities. You start with nothing and roll your way up.
 
@@ -38,7 +38,7 @@ Every distro has its own signature ability. No two do the same kind of thing.
 | <img src="https://files.catbox.moe/6l8199.png" width="32" height="32" alt="Kali"> | Kali Linux | Epic | Steals enemy buffs and lights up every mob through walls |
 | <img src="https://files.catbox.moe/wn2zww.png" width="32" height="32" alt="Arch"> | Arch Linux | Epic | A shockwave if you kept it updated, self-damage if you did not |
 | <img src="https://files.catbox.moe/qylsdl.png" width="32" height="32" alt="NixOS"> | NixOS | Epic | Saves a generation, then rolls you back to it |
-| <img src="https://files.catbox.moe/zpstp6.png" width="32" height="32" alt="Gentoo"> | Gentoo | Legendary | Channels three seconds, compiles the terrain into bookshelves, detonates |
+| <img src="https://files.catbox.moe/zpstp6.png" width="32" height="32" alt="Gentoo"> | Gentoo | Legendary | Rooted for an 8s emerge that any hit cancels; survive it for a detonation and 20s of -march=native |
 | <img src="https://files.catbox.moe/vikbaj.png" width="32" height="32" alt="Slackware"> | Slackware | Legendary | One precise lightning bolt on your target, with a chance to backfire |
 | <img src="https://files.catbox.moe/hk3b8c.png" width="32" height="32" alt="Linux From Scratch"> | Linux From Scratch | Mythic | Rebuilds you from nothing: massive heal and an area blast |
 
