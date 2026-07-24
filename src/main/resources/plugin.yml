@@ -1,0 +1,93 @@
+name: LinuxSMP
+version: '4.0'
+main: com.rubka.linuxsmp.LinuxSMPPlugin
+api-version: '1.21'
+author: rubka
+description: Gacha-style Linux distro characters with rarities, stats, abilities, bricking and duels.
+softdepend: [Vault]
+
+commands:
+  distroroll:
+    description: Roll a random Linux distro character.
+    usage: /distroroll [premium]
+    permission: linuxsmp.roll
+  distroswap:
+    description: Swap your active distro (mid-battle respec).
+    usage: /distroswap <distro>
+  distros:
+    description: Open your distro roster and profile.
+    usage: /distros
+  distrotoken:
+    description: Eject an unlocked distro as a fusable token item.
+    usage: /distrotoken <distro>
+  distrorepair:
+    description: Repair a bricked distro.
+    usage: /distrorepair <distro>
+  distrofuse:
+    description: Open the fusion preview GUI to combine two distro tokens.
+    usage: /distrofuse [recipes]
+    aliases: [distrofusion]
+  distrotop:
+    description: Leaderboard of players by collection points.
+    usage: /distrotop
+    aliases: [distroleaderboard]
+  distroduel:
+    description: Challenge a player to a distro duel.
+    usage: /distroduel <player|accept|deny>
+  pacman-syu:
+    description: Run system maintenance on your active distro.
+    usage: /pacman-syu
+    aliases: [syu, distroupdate]
+  linuxsmp:
+    description: LinuxSMP admin and exchange commands.
+    usage: /linuxsmp <reload|give|iso|token|exchange>
+  ubuntu:
+    description: Boot Ubuntu and use its ability (Community Support).
+    usage: /ubuntu
+  mint:
+    description: Boot Linux Mint and use its ability (Fresh Start).
+    usage: /mint
+  popos:
+    description: Boot Pop!_OS and use its ability (Auto-Tiling).
+    usage: /popos
+  debian:
+    description: Boot Debian and use its ability (Stable Fortress).
+    usage: /debian
+  fedora:
+    description: Boot Fedora and use its ability (Bleeding Edge).
+    usage: /fedora
+  alpine:
+    description: Boot Alpine and use its ability (Featherweight).
+    usage: /alpine
+  manjaro:
+    description: Boot Manjaro and use its ability (AUR Access).
+    usage: /manjaro
+  kali:
+    description: Boot Kali Linux and use its ability (Stealth / Pentest).
+    usage: /kali
+  arch:
+    description: Boot Arch Linux and use its ability (I use Arch, btw).
+    usage: /arch
+  gentoo:
+    description: Boot Gentoo and use its ability (Compile Everything).
+    usage: /gentoo
+  lfs:
+    description: Boot Linux From Scratch and use its ability (From Scratch).
+    usage: /lfs
+  nixos:
+    description: Boot NixOS and use its ability (Rollback).
+    usage: /nixos
+  tails:
+    description: Boot Tails and use its ability (Anonymity).
+    usage: /tails
+  slackware:
+    description: Boot Slackware and use its ability (Old School).
+    usage: /slackware
+
+permissions:
+  linuxsmp.roll:
+    description: Allows rolling distro characters.
+    default: true
+  linuxsmp.admin:
+    description: Admin commands (reload, give, iso, token).
+    default: op

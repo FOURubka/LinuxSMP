@@ -1,0 +1,328 @@
+# Roll weights per rarity (higher = more common).
+rarity-weights:
+  COMMON: 55
+  RARE: 25
+  EPIC: 12
+  LEGENDARY: 6
+  MYTHIC: 2
+
+# Fusion recipes: two distro tokens crafted together (shaped, side by side)
+# produce the result distro's token. Fusion runs a skill check — on fail one
+# input token is destroyed instead.
+fusions:
+  - inputs: [ubuntu, debian]
+    result: mint
+  - inputs: [arch, mint]
+    result: manjaro
+  - inputs: [debian, alpine]
+    result: kali
+  - inputs: [ubuntu, gentoo]
+    result: popos
+
+distros:
+  ubuntu:
+    rarity: COMMON
+    display-name: "&6Ubuntu"
+    custom-model-data: 2001
+    stats:
+      stability: 7
+      customization: 5
+      performance: 6
+      community-support: 10
+      learning-curve: 2
+    ability: "community_support"
+    lore: "Linux for human beings."
+    description:
+      - "Canonical's flagship, first released in 2004."
+      - "The distro that put Linux on the desktop map."
+      - "Huge community, LTS builds every two years."
+    high-maintenance: false
+    brick-risk:
+      base-fail-chance: 0.04
+      brick-type: TEMP
+      temp-brick-duration-seconds: 120
+      repair-cost-soft-currency: 200
+  mint:
+    rarity: COMMON
+    display-name: "&aLinux Mint"
+    custom-model-data: 2002
+    stats:
+      stability: 8
+      customization: 5
+      performance: 6
+      community-support: 8
+      learning-curve: 1
+    ability: "fresh_start"
+    lore: "From freedom came elegance."
+    description:
+      - "Built on Ubuntu, with the Cinnamon desktop."
+      - "The friendly on-ramp for Windows refugees."
+      - "Just works, straight out of the box."
+    high-maintenance: false
+    brick-risk:
+      base-fail-chance: 0.03
+      brick-type: TEMP
+      temp-brick-duration-seconds: 120
+      repair-cost-soft-currency: 150
+  popos:
+    rarity: COMMON
+    display-name: "&3Pop!_OS"
+    custom-model-data: 2003
+    stats:
+      stability: 7
+      customization: 6
+      performance: 7
+      community-support: 7
+      learning-curve: 2
+    ability: "auto_tiling"
+    lore: "Unleash your potential."
+    description:
+      - "By System76, tuned for their own hardware."
+      - "COSMIC desktop with first-class tiling."
+      - "Built for developers and gamers."
+    high-maintenance: false
+    brick-risk:
+      base-fail-chance: 0.04
+      brick-type: TEMP
+      temp-brick-duration-seconds: 120
+      repair-cost-soft-currency: 200
+  debian:
+    rarity: RARE
+    display-name: "&cDebian"
+    custom-model-data: 2004
+    stats:
+      stability: 10
+      customization: 6
+      performance: 6
+      community-support: 9
+      learning-curve: 4
+    ability: "stable_fortress"
+    lore: "The universal operating system."
+    description:
+      - "Since 1993, the bedrock of countless distros."
+      - "Ubuntu, Mint and Kali all descend from it."
+      - "Stable branch ships only battle-tested packages."
+    high-maintenance: false
+    brick-risk:
+      base-fail-chance: 0.04
+      brick-type: TEMP
+      temp-brick-duration-seconds: 180
+      repair-cost-soft-currency: 300
+  fedora:
+    rarity: RARE
+    display-name: "&9Fedora"
+    custom-model-data: 2005
+    stats:
+      stability: 6
+      customization: 7
+      performance: 8
+      community-support: 8
+      learning-curve: 5
+    ability: "bleeding_edge"
+    lore: "Freedom. Friends. Features. First."
+    description:
+      - "Red Hat's upstream, always on the newest tech."
+      - "First to ship Wayland, PipeWire and more."
+      - "Fresh features - the price is the bleeding edge."
+    high-maintenance: false
+    brick-risk:
+      base-fail-chance: 0.05
+      brick-type: TEMP
+      temp-brick-duration-seconds: 180
+      repair-cost-soft-currency: 350
+  alpine:
+    rarity: RARE
+    display-name: "&fAlpine"
+    custom-model-data: 2006
+    stats:
+      stability: 8
+      customization: 7
+      performance: 10
+      community-support: 5
+      learning-curve: 6
+    ability: "featherweight"
+    lore: "Small. Simple. Secure."
+    description:
+      - "musl libc and busybox, only a few megabytes."
+      - "The default base for most Docker containers."
+      - "Tiny, hardened, everywhere in the cloud."
+    high-maintenance: false
+    brick-risk:
+      base-fail-chance: 0.05
+      brick-type: TEMP
+      temp-brick-duration-seconds: 240
+      repair-cost-soft-currency: 400
+  manjaro:
+    rarity: RARE
+    display-name: "&2Manjaro"
+    custom-model-data: 2007
+    stats:
+      stability: 5
+      customization: 9
+      performance: 8
+      community-support: 7
+      learning-curve: 6
+    ability: "aur_access"
+    lore: "Arch for the rest of us."
+    description:
+      - "Arch underneath, with the sharp edges filed off."
+      - "Rolling release with its own tested repos."
+      - "Power of Arch without the manual install."
+    high-maintenance: true
+    brick-risk:
+      base-fail-chance: 0.06
+      brick-type: TEMP
+      temp-brick-duration-seconds: 300
+      repair-cost-soft-currency: 450
+  kali:
+    rarity: EPIC
+    display-name: "&5Kali Linux"
+    custom-model-data: 2008
+    stats:
+      stability: 5
+      customization: 8
+      performance: 8
+      community-support: 6
+      learning-curve: 7
+    ability: "pentest"
+    lore: "The quieter you become, the more you can hear."
+    description:
+      - "The pentester's toolbox, by Offensive Security."
+      - "Hundreds of security tools preinstalled."
+      - "Debian-based, built for offence and audits."
+    high-maintenance: true
+    brick-risk:
+      base-fail-chance: 0.06
+      brick-type: TEMP
+      temp-brick-duration-seconds: 300
+      repair-cost-soft-currency: 500
+  arch:
+    rarity: EPIC
+    display-name: "&bArch Linux"
+    custom-model-data: 2009
+    stats:
+      stability: 3
+      customization: 10
+      performance: 9
+      community-support: 7
+      learning-curve: 9
+    ability: "arch_btw"
+    lore: "I use Arch, btw."
+    description:
+      - "Rolling release, built by hand from a blank shell."
+      - "The wiki everyone reads, even non-Arch users."
+      - "You build it your way - and you maintain it."
+    high-maintenance: true
+    brick-risk:
+      base-fail-chance: 0.07
+      brick-type: PERMA
+      repair-cost-soft-currency: 800
+  gentoo:
+    rarity: LEGENDARY
+    display-name: "&dGentoo"
+    custom-model-data: 2010
+    stats:
+      stability: 5
+      customization: 10
+      performance: 10
+      community-support: 5
+      learning-curve: 10
+    ability: "compile_everything"
+    lore: "If it moves, compile it."
+    description:
+      - "Source-based: you compile the whole system."
+      - "Ability: 8s emerge - rooted, your hits do nothing, everyone sees the bar."
+      - "Get hit by a player and the build dies: 8 damage and double cooldown."
+      - "Survive it for a 10-block detonation and 20s of -march=native."
+    high-maintenance: true
+    brick-risk:
+      base-fail-chance: 0.08
+      brick-type: PERMA
+      repair-cost-soft-currency: 1200
+  lfs:
+    rarity: MYTHIC
+    display-name: "&4&lLinux From Scratch"
+    custom-model-data: 2011
+    stats:
+      stability: 2
+      customization: 10
+      performance: 10
+      community-support: 3
+      learning-curve: 10
+    ability: "from_scratch"
+    lore: "Your distro. Your rules. Your problem."
+    description:
+      - "Not a distro - a book you build Linux from."
+      - "Every binary compiled from source, by you."
+      - "Maximum knowledge, zero safety net."
+    high-maintenance: true
+    brick-risk:
+      base-fail-chance: 0.10
+      brick-type: PERMA
+      repair-cost-soft-currency: 2000
+  nixos:
+    rarity: EPIC
+    display-name: "&d&lNixOS"
+    custom-model-data: 2012
+    stats:
+      stability: 9
+      customization: 9
+      performance: 7
+      community-support: 6
+      learning-curve: 8
+    ability: "rollback"
+    lore: "Reproducible or it did not happen."
+    description:
+      - "Declarative: your whole system is one config."
+      - "Atomic upgrades and rollbacks that never break."
+      - "Reproducible builds via the Nix package manager."
+    high-maintenance: false
+    brick-risk:
+      base-fail-chance: 0.06
+      brick-type: TEMP
+      temp-brick-duration-seconds: 240
+      repair-cost-soft-currency: 500
+  tails:
+    rarity: MYTHIC
+    display-name: "&5&lTails"
+    custom-model-data: 2013
+    stats:
+      stability: 7
+      customization: 4
+      performance: 6
+      community-support: 5
+      learning-curve: 6
+    ability: "anonymity"
+    lore: "You were never here."
+    description:
+      - "The Amnesic Incognito Live System."
+      - "Runs from USB, routes everything through Tor."
+      - "Leaves no trace once you shut down."
+    high-maintenance: false
+    brick-risk:
+      # Amnesic: Tails never bricks permanently - a reboot always wipes the damage.
+      base-fail-chance: 0.07
+      brick-type: TEMP
+      temp-brick-duration-seconds: 300
+      repair-cost-soft-currency: 900
+  slackware:
+    rarity: LEGENDARY
+    display-name: "&6&lSlackware"
+    custom-model-data: 2014
+    stats:
+      stability: 9
+      customization: 8
+      performance: 8
+      community-support: 4
+      learning-curve: 9
+    ability: "old_school"
+    lore: "The oldest still standing. No hand-holding."
+    description:
+      - "The oldest distro still maintained, since 1993."
+      - "No dependency resolver - you are the package manager."
+      - "Unix-like and simple to a fault."
+    high-maintenance: true
+    brick-risk:
+      base-fail-chance: 0.08
+      brick-type: PERMA
+      repair-cost-soft-currency: 1200

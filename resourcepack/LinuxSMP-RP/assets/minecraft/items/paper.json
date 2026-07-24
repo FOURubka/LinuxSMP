@@ -1,0 +1,24 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "fallback": { "type": "minecraft:model", "model": "minecraft:item/paper" },
+    "entries": [
+      { "threshold": 2001, "model": { "type": "minecraft:model", "model": "minecraft:item/distro_ubuntu" } },
+      { "threshold": 2002, "model": { "type": "minecraft:model", "model": "minecraft:item/distro_mint" } },
+      { "threshold": 2003, "model": { "type": "minecraft:model", "model": "minecraft:item/distro_popos" } },
+      { "threshold": 2004, "model": { "type": "minecraft:model", "model": "minecraft:item/distro_debian" } },
+      { "threshold": 2005, "model": { "type": "minecraft:model", "model": "minecraft:item/distro_fedora" } },
+      { "threshold": 2006, "model": { "type": "minecraft:model", "model": "minecraft:item/distro_alpine" } },
+      { "threshold": 2007, "model": { "type": "minecraft:model", "model": "minecraft:item/distro_manjaro" } },
+      { "threshold": 2008, "model": { "type": "minecraft:model", "model": "minecraft:item/distro_kali" } },
+      { "threshold": 2009, "model": { "type": "minecraft:model", "model": "minecraft:item/distro_arch" } },
+      { "threshold": 2010, "model": { "type": "minecraft:model", "model": "minecraft:item/distro_gentoo" } },
+      { "threshold": 2011, "model": { "type": "minecraft:model", "model": "minecraft:item/distro_lfs" } },
+      { "threshold": 2012, "model": { "type": "minecraft:model", "model": "minecraft:item/distro_nixos" } },
+      { "threshold": 2013, "model": { "type": "minecraft:model", "model": "minecraft:item/distro_tails" } },
+      { "threshold": 2014, "model": { "type": "minecraft:model", "model": "minecraft:item/distro_slackware" } }
+    ]
+  }
+}

@@ -1,0 +1,109 @@
+roll:
+  cost-packages: 100
+  premium-cost-repotokens: 1
+  first-roll-free: true
+  duplicate-refund:
+    COMMON: 25
+    RARE: 60
+    EPIC: 150
+    LEGENDARY: 400
+    MYTHIC: 1000
+
+# Premium roll weights (boosted Legendary/Mythic odds).
+premium-rarity-weights:
+  COMMON: 20
+  RARE: 30
+  EPIC: 25
+  LEGENDARY: 18
+  MYTHIC: 7
+
+# custom-model-data ids for the resource pack.
+custom-model-data:
+  COMMON: 1001
+  RARE: 1002
+  EPIC: 1003
+  LEGENDARY: 1004
+  MYTHIC: 1005
+  recovery-iso: 1010
+
+# Automatic distro reroll on login.
+join-reroll:
+  enabled: true
+  # EVERY_JOIN - reroll on each login; FIRST_JOIN_ONLY - only the very first time.
+  mode: FIRST_JOIN_ONLY
+  # Ticks after login before the roll fires (40 = 2s).
+  delay-ticks: 40
+  # Minimum seconds between join rerolls, persisted per player (0 = every join).
+  # e.g. 86400 = one reroll per day.
+  cooldown-seconds: 0
+  # Play the full roll animation (false = silent grant + chat line).
+  animation: true
+  # Switch the player's active distro to the rolled one.
+  set-active: true
+  # false = wipe previously unlocked distros before the reroll (hardcore mode).
+  keep-unlocked: true
+  # Price in Packages for the join roll (0 = free); skipped if the player cannot pay.
+  cost-packages: 0
+  # Use premium-rarity-weights instead of the normal distros.yml weights.
+  premium-weights: false
+  # Refund duplicates via roll.duplicate-refund (false = duplicates give nothing).
+  duplicate-refund: true
+  # Only these rarities can drop (empty = all). e.g. [COMMON, RARE, EPIC]
+  allowed-rarities: []
+  # Distro ids that never drop on join. e.g. [lfs, tails]
+  excluded-distros: []
+  # Chat feedback to the player.
+  announce: true
+
+swap:
+  cooldown-seconds: 15
+  penalty-slowness-seconds: 5
+  combat-window-seconds: 10
+
+maintenance:
+  interval-seconds: 300
+  debuff-seconds: 8
+
+ability:
+  cooldown-seconds: 30
+
+# fail = clamp(base + learning-curve * modifier * learning-curve-factor
+#              - skill * skill-factor, min, max)
+skill-check:
+  modifiers:
+    maintenance: 0.5
+    swap: 1.5
+    fusion: 2.0
+    ability: 1.0
+  learning-curve-factor: 0.01
+  skill-factor: 0.0025
+  min-fail-chance: 0.01
+  max-fail-chance: 0.6
+  skill-gain-per-success: 2
+  max-skill: 200
+
+# Piloting penalty for under-leveled players on hard distros:
+# if learning-curve >= min-curve and skill < learning-curve * required-skill-per-point,
+# the player gets periodic Slowness/Mining Fatigue.
+piloting:
+  min-curve-for-penalty: 6
+  required-skill-per-point: 8
+
+duel:
+  same-rarity-only: false
+  win-packages: 150
+  lose-packages: 25
+
+loot:
+  packages-chance: 0.30
+  packages-min: 1
+  packages-max: 3
+  repotoken-chance: 0.02
+  dotfile-chance: 0.05
+  recovery-iso-chance: 0.005
+
+# Vault exchange rates (server money per unit).
+economy:
+  package-buy-price: 10.0
+  package-sell-price: 5.0
+  repotoken-buy-price: 500.0
